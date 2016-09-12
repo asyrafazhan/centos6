@@ -158,9 +158,9 @@ cp client.tar /home/vps/public_html/
 cd
 
 # install badvpn
-wget -O /usr/bin/badvpn-udpgw "http://script.jualssh.com/badvpn-udpgw"
+wget -O /usr/bin/badvpn-udpgw "https://raw.github.com/arieonline/autoscript/master/conf/badvpn-udpgw"
 if [ "$OS" == "x86_64" ]; then
-  wget -O /usr/bin/badvpn-udpgw "http://script.jualssh.com/badvpn-udpgw64"
+  wget -O /usr/bin/badvpn-udpgw "https://raw.github.com/arieonline/autoscript/master/conf/badvpn-udpgw64"
 fi
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.local
 sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.d/rc.local
@@ -188,9 +188,9 @@ LANG=C /usr/bin/mrtg /etc/mrtg/mrtg.cfg
 cd
 
 # setting port ssh
-echo "Port 143" >> /etc/ssh/sshd_config
-echo "Port  22" >> /etc/ssh/sshd_config
-echo "Port  80" >> /etc/ssh/sshd_config
+#echo "Port 143" >> /etc/ssh/sshd_config
+echo "Port  443" >> /etc/ssh/sshd_config
+#echo "Port  80" >> /etc/ssh/sshd_config
 service sshd restart
 chkconfig sshd on
 
